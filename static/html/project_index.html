@@ -43,11 +43,11 @@
   <body>
     {{> project-header}}
     <main>
-      <section class="py-5 text-center container">
-        <div class="row py-lg-5">
+      <section class="py-3 text-center container">
+        <div class="row">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">My Projects</h1>
-            <p class="lead text-muted">A catered list of some of the projects I've worked on. For a full list, check my github.</p>
+            <p class="lead text-muted">A catered list of some of the projects I've worked on.</p>
           </div>
         </div>
       </section>
@@ -68,12 +68,11 @@
     </main>
 
     <footer class="text-muted py-5">
-      <div class="container">
-        <p class="float-end mb-1">
-          <a href="#">Back to top</a>
-        </p>
-        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.1/getting-started/introduction/">getting started guide</a>.</p>
+      <div class="d-flex justify-content-center">
+        <div class="btn-group">
+          {{#repo}}{{> github-btn}}{{/repo}}
+          <a href="#" class="btn btn-outline-secondary">Back to Top</a>
+        </div>
       </div>
     </footer>
 
