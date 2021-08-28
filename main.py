@@ -21,6 +21,8 @@ def main(app):
 
     for project in projects:
         project['sub_url'] = f"/projects/{project['id']}"
+        desc = project['description']
+        project['lines'] = [{'line': part} for part in desc.split("\n") if len(part) > 0]
     project_lookup = {project['id']: project for project in projects}
 
     @app.get("/")
@@ -53,7 +55,8 @@ def main(app):
         html = renderer.render_path(f"static/html/error/{exc.status_code}.html")
         return HTMLResponse(content=html, status_code=exc.status_code)
 
+
 if __name__ == "__main__":
-    web_app = FastAPI(openapi_url=None) # disable docs; not a rest-api but a webserver
+    web_app = FastAPI(openapi_url=None)  # disable docs; not a rest-api but a webserver
     main(web_app)
     uvicorn.run(web_app)
