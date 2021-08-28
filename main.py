@@ -59,4 +59,4 @@ def main(app):
 if __name__ == "__main__":
     web_app = FastAPI(openapi_url=None)  # disable docs; not a rest-api but a webserver
     main(web_app)
-    uvicorn.run(web_app)
+    uvicorn.run(web_app,port=80)
