@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <title>{{name}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/github.css" rel="stylesheet">
+  </head>
+
+  <body style="background-color:#E9ECEF">
+    {{> project-header}}
+    <main role="main" style="background-color:transparent">
+      <div class="container" style="background-color:white">
+        <h1>{{name}}</h1>
+        <h6>{{summary}}</h6>
+        <hr>
+        {{#banner}}<img class="bd-placeholder-img card-img-top" style="object-fit: scale-down; max-height: 300px;" width="100%" src="{{banner}}" alt="Thumbnail"><hr>{{/banner}}
+        {{^banner}}{{#thumbnail}}<img class="bd-placeholder-img card-img-top" style="object-fit: scale-down; max-height: 300px;" width="100%" src="{{thumbnail}}" alt="Thumbnail"><hr>{{/thumbnail}}{{/banner}}
+        <h2>Description</h2>
+        {{#lines}}
+        <p>{{line}}</p>
+        {{/lines}}
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

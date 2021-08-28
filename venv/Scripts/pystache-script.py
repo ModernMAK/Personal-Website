@@ -1,4 +1,4 @@
-#!c:\users\modernmak\pycharmprojects\webpage\venv\scripts\python.exe
+#!c:\users\andre\documents\github\personal-website\venv\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'pystache==0.5.4','console_scripts','pystache'
 import re
 import sys

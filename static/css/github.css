@@ -1,0 +1,105 @@
+/*!
+ * Generated using the Bootstrap Customizer (https://getbootstrap.com/docs/3.4/customize/)
+ */
+/*!
+ * Bootstrap v3.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+.text-github {
+  color: #6e5494;
+}
+a.text-github:hover,
+a.text-github:focus {
+  color: #564273;
+}
+.bg-github {
+  color: #fff;
+  background-color: #6e5494;
+}
+a.bg-github:hover,
+a.bg-github:focus {
+  background-color: #564273;
+}
+.btn-github {
+  color: #ffffff;
+  background-color: #6e5494;
+  border-color: #624b84;
+}
+.btn-github:focus,
+.btn-github.focus {
+  color: #ffffff;
+  background-color: #564273;
+  border-color: #251d32;
+}
+.btn-github:hover {
+  color: #ffffff;
+  background-color: #564273;
+  border-color: #45355d;
+}
+.btn-github:active,
+.btn-github.active,
+.open > .dropdown-toggle.btn-github {
+  color: #ffffff;
+  background-color: #564273;
+  background-image: none;
+  border-color: #45355d;
+}
+.btn-github:active:hover,
+.btn-github.active:hover,
+.open > .dropdown-toggle.btn-github:hover,
+.btn-github:active:focus,
+.btn-github.active:focus,
+.open > .dropdown-toggle.btn-github:focus,
+.btn-github:active.focus,
+.btn-github.active.focus,
+.open > .dropdown-toggle.btn-github.focus {
+  color: #ffffff;
+  background-color: #45355d;
+  border-color: #251d32;
+}
+.btn-github.disabled:hover,
+.btn-github[disabled]:hover,
+fieldset[disabled] .btn-github:hover,
+.btn-github.disabled:focus,
+.btn-github[disabled]:focus,
+fieldset[disabled] .btn-github:focus,
+.btn-github.disabled.focus,
+.btn-github[disabled].focus,
+fieldset[disabled] .btn-github.focus {
+  background-color: #6e5494;
+  border-color: #624b84;
+}
+.btn-github .badge {
+  color: #6e5494;
+  background-color: #ffffff;
+}
+.label-github {
+  background-color: #6e5494;
+}
+.label-github[href]:hover,
+.label-github[href]:focus {
+  background-color: #564273;
+}
+.panel-github {
+  border-color: #6e5494;
+}
+.panel-github > .panel-heading {
+  color: #ffffff;
+  background-color: #6e5494;
+  border-color: #6e5494;
+}
+.panel-github > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #6e5494;
+}
+.panel-github > .panel-heading .badge {
+  color: #6e5494;
+  background-color: #ffffff;
+}
+.panel-github > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #6e5494;
+}

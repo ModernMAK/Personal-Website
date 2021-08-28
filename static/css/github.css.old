@@ -1,0 +1,75 @@
+:root {
+    --main-color:#fff;
+    
+    --bg-color:#683d99;
+    --border-color:#5c3687;
+
+    --bg-focus-color:#523078;
+    --border-focus-color:#241536;
+
+    --border-hover-color:#422761;
+}
+
+/* Original => +60 Hue, *5/6 Value, Saturation, Round UP
+    --bg-color:#337ab7;
+    --border-color:#2e6da4;
+
+    --bg-focus-color:#286090;
+    --border-focus-color:#122b40;
+
+    --border-hover-color:#204d74;
+*/
+
+.btn-github {
+  color: var(--main-color);
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+}
+.btn-github:focus,
+.btn-github.focus {
+  color: var(--main-color);
+  background-color: var(--bg-focus-color);
+  border-color: var(--border-focus-color);
+}
+.btn-github:hover {
+  color: var(--main-color);
+  background-color: var(--bg-focus-color);
+  border-color: var(--border-hover-color);
+}
+.btn-github:active,
+.btn-github.active,
+.open > .dropdown-toggle.btn-github {
+  color: var(--main-color);
+  background-color: var(--bg-focus-color);
+  background-image: none;
+  border-color: var(--border-focus-color);
+}
+.btn-github:active:hover,
+.btn-github.active:hover,
+.open > .dropdown-toggle.btn-github:hover,
+.btn-github:active:focus,
+.btn-github.active:focus,
+.open > .dropdown-toggle.btn-github:focus,
+.btn-github:active.focus,
+.btn-github.active.focus,
+.open > .dropdown-toggle.btn-github.focus {
+  color: var(--main-color);
+  background-color: var(--border-hover-color);
+  border-color: var(--border-focus-color);
+}
+.btn-github.disabled:hover,
+.btn-github[disabled]:hover,
+fieldset[disabled] .btn-github:hover,
+.btn-github.disabled:focus,
+.btn-github[disabled]:focus,
+fieldset[disabled] .btn-github:focus,
+.btn-github.disabled.focus,
+.btn-github[disabled].focus,
+fieldset[disabled] .btn-github.focus {
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+}
+.btn-github .badge {
+  color: var(--bg-color);
+  background-color: var(--main-color);
+}

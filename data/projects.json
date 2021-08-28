@@ -1,69 +1,80 @@
 [
   {
+    "id": "relic-sga-tool",
     "name": "Relic SGA Tool",
     "summary": "A content extractor for Relic's SGA file format. Written in python.",
-    "sub_url": "/projects/relic-sga-tool",
-    "html_path": "static/html/project/relic-sga-archive.html",
     "repo": "https://github.com/ModernMAK/Relic-SGA-Archive-Tool",
-    "thumbnail": "/img/project/Relic-SGA-Tool.png"
+    "thumbnail": "/img/project/Relic-SGA-Tool.png",
+    "banner": "/img/project/Relic-SGA-Tool-Banner.png",
+    "lines": [
+      {"line": "This project started as a method to extract models from the game Dawn Of War. And began with some google-fu to build a basis for how files are layed out. Using the forums over at Xentax; I got a gist of the Archive folder's layout and the specialized file layout."},
+      {"line": "While this allowed me to read the files; most of the important files were still 'blobby' data dumps."},
+      {"line": "I began with Audio-Files, researching on forums and the modding scene for information on AIFF-C. As it turned out; the files were compressed using a special codec developed by relic, requiring the use of  two ancient programs to convert back to a wav format."},
+      {"line": "Next came models; a fine piece of advice I found on forums was looking for the exponent/mantissa of floats; typically XF or FX depending on byte orders. This helps identify the 'position' part of a vertex list. From there, I extrapolated common things I expected to find in a mesh; Uvs & Normals."},
+      {"line": "While not perfect, since the mesh still had unknown fields packed in, and I didn't understand how to parse a skeleton chunk, it was capable of dumping the majority of the object without ripping it from the gpu (which is what is required by ninjaripper)."},
+      {"line": "After meshes, I moved onto textures. From memory, I believe most all DOW I textures (packed into texture archives) were dds files marked as tga files. And required rebuilding a proper DDS file header. Later, I ran into a separate texture set that was grayscale/color TGAs which required rebuilding the TGA header."},
+      {"line": "From there I looked into other assets to convert, but decided against it. Since these files were exclusive to the game, and didn't have a good reason to need to extract them."},
+      {"line": "Later, I learned that this format was still being used by Relic; all the way to their game DOW III. So I tried to continue to extract assets for DOW II and DOW III. Primarily; models. DOW II uses FMOD audio, which I felt would be too much of an undertaking to handle when I'm sure a tool already exists, and DOW III (I think) already unpacked audio lines normally?"},
+      {"line": "The end result is a tool which can unpack .SGA archives, RelicChunky files (as generic binary folder/data files), Models (.WHM, .Model), Textures (.RTX, .WTP, .RTG) and Audio (.FDA / .AIFF-C)"}
+    ]
   },
   {
+    "id": "tModLoader",
     "name": "tModLoader",
     "summary": "An Open-Source project to allow Terraria to be modded, which I've contributed a few bug fixes to.",
-    "sub_url": "/projects/tModLoader",
     "repo": "https://github.com/tModLoader/tModLoader/pulls?q=author%3AModernMAK",
     "thumbnail": "/img/project/tModLoader.jpg"
   },
   {
+    "id": "polygon-sphere",
     "name": "Polygon Sphere",
     "summary": "A dynamically generated spherical planet, constructed from a graph. A mathy project that plays with data structures and geometry. Made in Unity3D.",
-    "sub_url": "/projects/polygon-sphere",
     "repo": "https://github.com/ModernMAK/DynamicTileSphere",
     "thumbnail": "/img/project/DynamicTileSphere.png"
   },
   {
+    "id": "univox",
     "name": "Unity Voxels",
     "summary": "A small voxel engine built in Unity, utilizing the job system and the new Native Containers.",
-    "sub_url": "/projects/univox",
     "repo": "https://github.com/ModernMAK/UniVox",
     "thumbnail": "/img/project/Univox.png"
   },
   {
+    "id": "litespeed",
     "name": "Litespeed",
     "summary": "A bare-bones python webserver which I collaborated on.",
-    "sub_url": "/projects/litespeed",
     "repo": "https://github.com/ModernMAK/LiteSpeed"
   },
   {
+    "id": "file-tag-server",
     "name": "File Tag Server",
     "summary": "A python service I created to tag files on your local system, without needing to organize them by folders.",
-    "sub_url": "/projects/file-tag-server",
     "repo": "https://github.com/ModernMAK/FileTagServer"
   },
   {
+    "id": "character-ability-prototype",
     "name": "Character Ability Prototype",
     "summary": "A game prototype which utilizes individual characters with unique abilities. Mimicking other MOBAs like League of Legends or DOTA 2.",
-    "sub_url": "/projects/character-ability-prototype",
     "repo": "https://github.com/ModernMAK/BoEG"
   },
   {
+    "id": "shrouded-aisle",
     "name": "Shrouded AIsle",
-    "summary": "A bot that uses TensforFlow to play the game Shrouded Isle. Built in python.",
-    "sub_url": "/projects/shrouded-aisle"
+    "summary": "A bot that uses TensforFlow to play the game Shrouded Isle. Built in python."
   },
   {
+    "id": "steam-vr-prototype",
     "name": "SteamVR Prototype",
-    "summary": "A simple prototype for SteamVR in Unity. Some simple hand-gun logic and a crude implementation of Half-Life Alyx's gravity gloves.",
-    "sub_url": "/projects/steam-vr-prototype"
+    "summary": "A simple prototype for SteamVR in Unity. Some simple hand-gun logic and a crude implementation of Half-Life Alyx's gravity gloves."
   },
   {
+    "id": "arduino-joystick",
     "name": "Arduino Joystick",
-    "summary": "A small project to build my own arcade joystick using an Arduino microcontroller. Built in C.",
-    "sub_url": "/projects/arduino-joystick"
+    "summary": "A small project to build my own arcade joystick using an Arduino microcontroller. Built in C."
   },
   {
+    "id": "website",
     "name": "ModernMAK.com",
-    "summary": "The website you're viewing; built with FastAPI, uvicorn, Pystache, and Bootstrap.",
-    "sub_url": "/projects/website"
+    "summary": "The website you're viewing; built with FastAPI, uvicorn, Pystache, and Bootstrap."
   }
 ]
