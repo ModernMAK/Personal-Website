@@ -1,0 +1,3 @@
+docker kill Website
+docker rm Website
+docker run -d --name Website -p 80:8080 personal-website
