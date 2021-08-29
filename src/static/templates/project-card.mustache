@@ -1,25 +1,25 @@
 <div class="card shadow-sm">
+    {{#thumbnail}}
     <a href="{{sub_url}}">
-        {{#thumbnail}}<img class="bd-placeholder-img card-img-top" style="object-fit: contain; max-height: 300px; background-color:#55595c;" width="100%" src="{{thumbnail}}" alt="Thumbnail">{{/thumbnail}}
+<!--        {{#thumbnail}}<img class="bd-placeholder-img card-img-top" style="object-fit: contain; max-height: 300px; background-color:#55595c;" width="100%" src="{{thumbnail}}" alt="Thumbnail">{{/thumbnail}}-->
+        {{#thumbnail}}<img class="bd-placeholder-img card-img-top bg-dark" style="object-fit: contain; max-height: 300px;" width="100%" src="{{thumbnail}}" alt="Thumbnail">{{/thumbnail}}
         {{^thumbnail}}<svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">No Thumbnail Given</text></svg>{{/thumbnail}}
     </a>
-    <h5 class="card-header">{{name}}</h5>
+    {{/thumbnail}}
+    <a class="card-header h3 bg-secondary text-white" style="text-decoration: none;" href="{{sub_url}}">{{name}}</a>
     <div class="card-body">
         <p class="card-text">{{summary}}</p>
     </div>
     {{#has_buzzwords}}
     <ul class="list-group list-group-flush">
             {{#buzzwords}}
-            <li class="list-group-item">{{name}}{{#logo}}<img src="{{logo}}" alt="{{name}} Logo" style="max-height:100%; max-width:32px; object-fit: contain;"/>{{/logo}}
+            <li class="list-group-item">{{name}}{{#logo}}<img src="{{logo}}" alt="{{name}} Logo" style="float:right; max-height:100%; max-width:32px; object-fit: contain;"/>{{/logo}}
             </li>
             {{/buzzwords}}
-<!--    </ul>
-            <h5 class="badge badge-pill bg-secondary">{{name}}{{#logo}} <img src="{{logo}}" alt="{{name}} Logo" style="height:32px; object-fit: contain;"/>{{/logo}}</h5>
-            <hr/>-->
     </ul>
     {{/has_buzzwords}}
     <div class="card-footer btn-group">
         <a href="{{sub_url}}" class="btn btn-sm btn-outline-primary">Read More</a>
-        {{#repo}}<a href="{{repo}}"  class="btn btn-sm btn-github">GitHub {{>github-svg}}</a>{{/repo}}
+        {{#repo}}<a href="{{repo}}"  class="btn btn-sm btn-outline-github">GitHub {{>github-svg}}</a>{{/repo}}
     </div>
 </div>

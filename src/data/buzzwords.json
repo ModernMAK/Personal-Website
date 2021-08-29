@@ -1,6 +1,6 @@
 {
   "Unity3D": {
-    "logo":"img/buzzwords/UnityLogo.png"
+    "logo":"img/buzzwords/UnityLogo.svg"
   },
   "Python": {
     "logo": "img/buzzwords/PythonLogo.svg"
@@ -8,6 +8,33 @@
   "AWS": {
     "name": "Amazon Web Services",
     "logo": "img/buzzwords/AmazonWebServicesLogo.svg"
+  },
+  "Docker": {
+    "logo": "img/buzzwords/DockerLogo.svg"
+  },
+  "TensorFlow": {
+    "logo": "img/buzzwords/TensorFlowLogo.svg"
+  },
+  "Steam": {
+    "logo": "img/buzzwords/SteamLogo.svg"
+  },
+  "SteamVR": {
+    "logo": "img/buzzwords/SteamLogo.svg"
+  },
+  "C#": {
+    "logo": "img/buzzwords/CSharpLogo.svg"
+  },
+  "C++": {
+    "logo": "img/buzzwords/CPlusPlusLogo.svg"
+  },
+  "C": {
+    "logo": "img/buzzwords/CLogo.svg"
+  },
+  "Arduino": {
+    "logo": "img/buzzwords/ArduinoLogo.svg"
+  },
+  "Oculus": {
+    "logo": "img/buzzwords/OculusLogo.svg"
   }
 
 }

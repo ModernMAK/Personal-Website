@@ -1,105 +1,130 @@
-/*!
- * Generated using the Bootstrap Customizer (https://getbootstrap.com/docs/3.4/customize/)
- */
-/*!
- * Bootstrap v3.4.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+:root {
+  --bs-github: #6e5494;
+  --bs-github-rgb: 110, 84, 148;
+  --bs-github-a: #5d477d;
+  --bs-github-b: #574375;
+  --bs-github-c: #534070;
+  --bs-github-e #423359;
+  
+  --bs-github-f: #7d6f94;
+  --bs-github-g: #746e85;
+  --bs-github-i: #78728a;
 
-.text-github {
-  color: #6e5494;
+  --bs-github-d: #847a94;
+  --bs-github-h: #7f748c;
+  
 }
-a.text-github:hover,
-a.text-github:focus {
-  color: #564273;
+.table-github {
+  --bs-table-bg: var(--bs-github-d);
+  --bs-table-striped-bg: var(--bs-github-h);
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: var(--bs-github-g);
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: var(--bs-github-i);
+  --bs-table-hover-color: #000;
+  color: #000;
+  border-color: var(--bs-github-g);
 }
-.bg-github {
-  color: #fff;
-  background-color: #6e5494;
-}
-a.bg-github:hover,
-a.bg-github:focus {
-  background-color: #564273;
-}
+
 .btn-github {
-  color: #ffffff;
-  background-color: #6e5494;
-  border-color: #624b84;
-}
-.btn-github:focus,
-.btn-github.focus {
-  color: #ffffff;
-  background-color: #564273;
-  border-color: #251d32;
+  color: #fff;
+  background-color: var(--bs-github);
+  border-color: var(--bs-github);
 }
 .btn-github:hover {
-  color: #ffffff;
-  background-color: #564273;
-  border-color: #45355d;
+  color: #fff;
+  background-color: var(--bs-github-a);
+  border-color: var(--bs-github-b);
 }
-.btn-github:active,
-.btn-github.active,
-.open > .dropdown-toggle.btn-github {
-  color: #ffffff;
-  background-color: #564273;
-  background-image: none;
-  border-color: #45355d;
+.btn-check:focus + .btn-github, .btn-github:focus {
+  color: #fff;
+  background-color: var(--bs-github-a);
+  border-color: var(--bs-github-b);
+  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
 }
-.btn-github:active:hover,
-.btn-github.active:hover,
-.open > .dropdown-toggle.btn-github:hover,
-.btn-github:active:focus,
-.btn-github.active:focus,
-.open > .dropdown-toggle.btn-github:focus,
-.btn-github:active.focus,
-.btn-github.active.focus,
-.open > .dropdown-toggle.btn-github.focus {
-  color: #ffffff;
-  background-color: #45355d;
-  border-color: #251d32;
+.btn-check:checked + .btn-github, .btn-check:active + .btn-github, .btn-github:active, .btn-github.active, .show > .btn-github.dropdown-toggle {
+  color: #fff;
+  background-color: var(--bs-github-b);
+  border-color: var(--bs-github-c);
 }
-.btn-github.disabled:hover,
-.btn-github[disabled]:hover,
-fieldset[disabled] .btn-github:hover,
-.btn-github.disabled:focus,
-.btn-github[disabled]:focus,
-fieldset[disabled] .btn-github:focus,
-.btn-github.disabled.focus,
-.btn-github[disabled].focus,
-fieldset[disabled] .btn-github.focus {
-  background-color: #6e5494;
-  border-color: #624b84;
+.btn-check:checked + .btn-github:focus, .btn-check:active + .btn-github:focus, .btn-github:active:focus, .btn-github.active:focus, .show > .btn-github.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
 }
-.btn-github .badge {
-  color: #6e5494;
-  background-color: #ffffff;
+.btn-github:disabled, .btn-github.disabled {
+  color: #fff;
+  background-color: var(--bs-github);
+  border-color: var(--bs-github);
 }
-.label-github {
-  background-color: #6e5494;
+
+.btn-outline-github {
+  color: var(--bs-github);
+  border-color: var(--bs-github);
 }
-.label-github[href]:hover,
-.label-github[href]:focus {
-  background-color: #564273;
+.btn-outline-github:hover {
+  color: #fff;
+  background-color: var(--bs-github);
+  border-color: var(--bs-github);
 }
-.panel-github {
-  border-color: #6e5494;
+.btn-check:focus + .btn-outline-github, .btn-outline-github:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
 }
-.panel-github > .panel-heading {
-  color: #ffffff;
-  background-color: #6e5494;
-  border-color: #6e5494;
+.btn-check:checked + .btn-outline-github, .btn-check:active + .btn-outline-github, .btn-outline-github:active, .btn-outline-github.active, .btn-outline-github.dropdown-toggle.show {
+  color: #fff;
+  background-color: var(--bs-github);
+  border-color: var(--bs-github);
 }
-.panel-github > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #6e5494;
+.btn-check:checked + .btn-outline-github:focus, .btn-check:active + .btn-outline-github:focus, .btn-outline-github:active:focus, .btn-outline-github.active:focus, .btn-outline-github.dropdown-toggle.show:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
 }
-.panel-github > .panel-heading .badge {
-  color: #6e5494;
-  background-color: #ffffff;
+.btn-outline-github:disabled, .btn-outline-github.disabled {
+  color: var(--bs-github);
+  background-color: transparent;
 }
-.panel-github > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #6e5494;
+.alert-github {
+  color: var(--bs-github-e);
+  background-color: var(--bs-github-d);
+  border-color: var(--bs-github-f);
 }
+
+.alert-github .alert-link {
+  color: #06357a;
+}
+.list-group-item-github {
+  color: var(--bs-github-e);
+  background-color: var(--bs-github-d);
+}
+.list-group-item-github.list-group-item-action:hover, .list-group-item-github.list-group-item-action:focus {
+  color: var(--bs-github-e);
+  background-color: var(--bs-github-g);
+}
+.list-group-item-github.list-group-item-action.active {
+  color: #fff;
+  background-color: var(--bs-github-e);
+  border-color: var(--bs-github-e);
+}
+
+.link-github {
+  color: var(--bs-github);
+}
+.link-github:hover, .link-github:focus {
+  color: var(--bs-github-b);
+}
+.border-github {
+  border-color: var(--bs-github) !important;
+}
+
+.text-github {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-github-rgb), var(--bs-text-opacity)) !important;
+}
+.bg-github {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-github-rgb), var(--bs-bg-opacity)) !important;
+}
+
+
+
+
+
+

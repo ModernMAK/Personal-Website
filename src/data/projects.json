@@ -16,7 +16,7 @@
     "repo": "https://github.com/tModLoader/tModLoader/pulls?q=author%3AModernMAK",
     "thumbnail": "/img/project/tModLoader.jpg",
     "description": "I briefly worked on tModLoader to fix a few bugs when Terraria 1.4 released. It was my first exposure to working on a Decompiled C# project. \nBy reviewing crash logs and the ingame code, I was able to discover that a new water texture variant was causing a Crash to Desktop; a simple fix, just incrementing the water texture's array size by one.\nWhile playing with my ingame accessories I noticed that not all accessories were being displayed on the player, by carefully examining the call stack and the player's status. I discovered a logical error in the Draw Code, which would not handle backpacks added by mods. \nBut perhaps my biggest accomplishment for tModLoader was fixing a Net-Code bug. I'll begin by saying that I was only able to debug this because I could debug the server and client separately, and examine the handshakes closely. The issue was that clients tried to load information before being initialized. By carefully combing through callstacks between both the client and the server I was able to familiarize myself with how the handshake is expected to go. Now that I understood what was going on, the fix was simple; check if we are in the proper state to read data from the server. While this problem is obvious; working with Decompiled code is not; this code-base used constants for the state values; meaning I only had numbers (instead of pretty names) to work with.\n",
-    "buzzwords": ["C#"]
+    "buzzwords": ["C#","Steam"]
   },
   {
     "id": "polygon-sphere",
@@ -25,7 +25,7 @@
     "repo": "https://github.com/ModernMAK/DynamicTileSphere",
     "thumbnail": "/img/project/DynamicTileSphere.png",
     "description": "Dynamic Tile Sphere is a simple Unity project that generates a sphere composed of polygons. At its core, this application generates a platonic solid (specified by shape), subdivides the solid to assemble a bigger planet, then creates a 'Dual' of the mesh, turning every source vertex into a polygon, and every source polygon into a vertex. At the time, I didn't find many graphing C# libraries that I could use, so I built a rather mediocre Graph structure; using Half-edges.\n\tThe graph is chucked into an algorithm which generates a mesh from the graph, and a shader then uses a texture array to paint the polygons.\n\tTo avoid the most expensive part of the operation, once a mesh is generated; it is saved to the persistent data path to avoid recomputing the planet. Because only the shape, subdivisions, and whether we use slerp defines the positions on a planet, we only need to handle these changes when saving.\n",
-    "buzzwords": ["C#","Unity3D"]
+    "buzzwords": ["C#", "Unity3D"]
   },
   {
     "id": "univox",
@@ -34,7 +34,7 @@
     "repo": "https://github.com/ModernMAK/UniVox",
     "thumbnail": "/img/project/Univox.png",
     "description": "UniVox is a simple Boxel (think minecraft) engine sandbox developed in Unity. Learned about vertex-layouts in order to reduce mesh size in memory. Learned about optimising mesh generation; ala ignoring faces which can't be seen. Like most voxel engines, I rely on chunking voxels into larger spaces, which allows me to stream in chunks as needed. While normally an oct-tree of sorts is used; I use a simple hashmap, since any voxel or chunk can be expressed by an x,y,z integer triple.",
-    "buzzwords": ["C#","Unity3D"]
+    "buzzwords": ["C#", "Unity3D"]
   },
   {
     "id": "litespeed",
@@ -58,34 +58,34 @@
     "summary": "A game prototype which utilizes individual characters with unique abilities. Mimicking other MOBAs like League of Legends or DOTA 2.",
     "repo": "https://github.com/ModernMAK/BoEG",
     "description": "Battle of EndGame (BoEG) was a fun little idea I had in  high school; to build a moba. Despite much difficulty, and a lot of revisions. I learned alot about how to stretch the flexibility of Interfaces. Which I use to allow Units and Abilities to pick and choose what features they support. My interface pattern also allowed me to easily decouple my UI system from game-logic.\nI also support an observer pattern to reduce calls to empty functions and to decouple them. This is primarily the case for my 'ticking' or 'update' system, which for ease of use, implements a 'pre' step in addition to the current and post (late) steps that unity uses. This allows me to update units and abilities independently; which allows me to use abilities without tying them to an entity. (Useful for Game mode effects or abilities which cast other abilities.)\nDespite being a Unity-based project; because of the restrictions of the engine (E.G. my 'Step' System for updates. And Unity's dependence on MonoBehaviour) I relied primarily on interfaces to act as 'Components' for my Game Objects. To avoid long lists of small components on a single object.\n\tI also make use of Scriptable Objects for my abilities, allowing me to edit their values in unity or YAML (unless I'm mistaken, and they are binaries). While automatically handling the necessary serialization & instancing. But Perhaps the most interesting part of this project; abilities and modifiers.\nModifiers are implemented entirely through interfaces. A master Modifiable class which contains a list of all modifiers, and has two events for when a modifier is added/removed. Any module which should accept modifiers then listens to Modifiable. When a modifier is added or removed, they check if it's a relevant modifier and manage their own personal modifier list. This avoids the issue of asking Modifiable for a list of all relevant modifiers (which would need to happen every update for any steppable modules) while also allowing all modifiers to be exposed (for UI purposes or for initializing a new Listener on a pre-existing Modifiable)\nAbilities are also implemented primarily with interfaces; my expectations for abilities were to make it simple to cast via code, and via user input. In the event that I'd like to cast an ability via another ability I'd need a code method, and I'd obviously need a user input method to allow abilities to control how they are cast by the user. With that knowledge, I simply needed abilities to be able to read modules from entities (exposed by interfaces) to get information about the unit, like their team or how much mana they have. And do whatever the ability needed to do on other units.\n",
-    "buzzwords": ["Unity3D","C#"]
+    "buzzwords": ["Unity3D", "C#"]
   },
   {
     "id": "shrouded-aisle",
     "name": "Shrouded AIsle",
     "summary": "A bot that uses TensforFlow to play the game Shrouded Isle. Built in python.",
     "description": "A game I found that was similar to 'Guess Who', you have to keep people happy while searching for the right person. I thought it would be interesting to see if I could write a Tensorflow graph to play the game and guess who the target was.\nMy first goal was to train it to identify the genders of the characters; as the target's pronoun would always be given as HE or SHE. So I wrote a bot that would launch the game, change a graphical setting (the game is monochromatic, and offers different color schemes), visit each house and snap a picture of roughly where their portrait should be, then save this to a folder where I would manually sort them. From there, I let the neural net run, and try to learn the portrait's gender.\n",
-    "buzzwords": ["Python","TenseorFlow"]
+    "buzzwords": ["Python", "TensorFlow"]
   },
   {
     "id": "steam-vr-prototype",
     "name": "SteamVR Prototype",
     "summary": "A simple prototype for SteamVR in Unity. Some simple hand-gun logic and a crude implementation of Half-Life Alyx's gravity gloves.",
     "description": "A small prototype that I played with to learn about SteamVR. While Valve's Unity plugin does much of the heavy lifting, I was able to emulate a bit of Valve's gravity-glove code; their Point and flick interface, which seems to just be a projectile motion. Orienting the object was more difficult, because we need to add an angular velocity so that it orients to the user, but we want to ease into and out of the rotation, meaning it needs to accelerate and decelerate over time. But, if the object collides in mid air, we may want to stop our rotation code; since it may not reach us anymore.\n\tWhile minor, it was also a fun lesson in VR-controller mapping; SteamVR uses its own list of mappings handled by Steam to allow any VR controller to play any VR game. While I have access to an Occulus my friends both use Vives; while we were able to figure it out eventually, it definitely taught me to be aware of how other VR devices handle inputs.\n",
-    "buzzwords": ["C#","Unity3D","SteamVR","Occulus"]
+    "buzzwords": ["C#", "Unity3D", "SteamVR", "Oculus"]
   },
   {
     "id": "arduino-joystick",
     "name": "Arduino Joystick",
     "summary": "A small project to build my own arcade joystick using an Arduino microcontroller. Built in C.",
     "description": "A simple c++ microcontroller project about polling a circuit and sending a HID report. While the coding aspect is quite basic; it was a good lesson in learning about ARM firmware (I had to flash new firmware to use the arduino as a HID usb device) and serialization (my first attempts were a client-slave program using arudino's USB serial.",
-    "buzzwords": ["C","C++","Arduino"]
+    "buzzwords": ["C", "C++", "Arduino"]
   },
   {
     "id": "website",
     "name": "ModernMAK.com",
     "summary": "The website you're viewing; built with FastAPI, uvicorn, Pystache, and Bootstrap.",
     "description": "I needed a way to present my stuff that's slightly nicer than shouting 'I've dabbled in programming for 5+ years, just check my GitHub!' This simple site is the culmination of that.",
-    "buzzwords": ["Python","AWS","Docker"]
+    "buzzwords": ["Python", "AWS", "Docker"]
   }
 ]
