@@ -12,7 +12,7 @@ from starlette.responses import HTMLResponse, RedirectResponse
 from starlette.staticfiles import StaticFiles
 
 
-def main(app):
+def setup(app):
     renderer = pystache.Renderer(search_dirs="static/templates")
     app.mount("/img", StaticFiles(directory="static/img"))
     app.mount("/css", StaticFiles(directory="static/css"))
@@ -58,5 +58,5 @@ def main(app):
 
 if __name__ == "__main__":
     web_app = FastAPI(openapi_url=None)  # disable docs; not a rest-api but a webserver
-    main(web_app)
-    uvicorn.run(web_app,port=80)
+    setup(web_app)
+    uvicorn.run(web_app, port=80, host="0.0.0.0")
