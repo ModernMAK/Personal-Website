@@ -1,5 +1,6 @@
 {
   "Unity3D": {
+    "alias": ["Unity"],
     "logo":"img/buzzwords/UnityLogo.svg"
   },
   "Python": {
@@ -22,10 +23,14 @@
     "logo": "img/buzzwords/SteamLogo.svg"
   },
   "C#": {
-    "logo": "img/buzzwords/CSharpLogo.svg"
+    "alias": ["CSharp","C Sharp"],
+    "logo": "img/buzzwords/CSharpLogo.svg",
+    "safe_name": "C-Sharp"
   },
   "C++": {
-    "logo": "img/buzzwords/CPlusPlusLogo.svg"
+    "alias": ["CPP","CPlusPlus","C Plus Plus"],
+    "logo": "img/buzzwords/CPlusPlusLogo.svg",
+    "safe_name": "C-Plus-Plus"
   },
   "C": {
     "logo": "img/buzzwords/CLogo.svg"

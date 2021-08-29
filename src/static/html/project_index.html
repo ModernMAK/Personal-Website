@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Projects</title>
+    <title>ModernMAK.com</title>
 
 
     
@@ -51,6 +51,14 @@
 
       <div class="album py-5 bg-light">
         <div class="container">
+          {{#tag}}
+            {{#info}}<div class="alert alert-secondary h2" role="alert">{{name}}
+                          {{#logo}}<img src="{{logo}}" alt="{{name}} Logo" style="max-height:1.4em; object-fit: contain; float:right;"/>{{/logo}}
+
+        </div>{{/info}}
+            {{#warn_tag}}<div class="alert alert-warning" role="alert">The tag '{{name}}' does not exist!</div>{{/warn_tag}}
+            {{#warn_proj}}<div class="alert alert-warning" role="alert">No projects found with '{{name}}' tag!</div>{{/warn_proj}}
+          {{/tag}}
 
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {{#projects}}
@@ -69,6 +77,8 @@
         <div class="btn-group">
           {{#repo}}{{> github-btn}}{{/repo}}
           <a href="#" class="btn btn-outline-secondary">Back to Top</a>
+          {{#tag}}<a href="/projects" class="btn btn-outline-secondary">Back to Projects</a>{{/tag}}
+
         </div>
       </div>
     </footer>

@@ -13,8 +13,14 @@
     {{#has_buzzwords}}
     <ul class="list-group list-group-flush">
             {{#buzzwords}}
-            <li class="list-group-item">{{name}}{{#logo}}<img src="{{logo}}" alt="{{name}} Logo" style="float:right; max-height:100%; max-width:32px; object-fit: contain;"/>{{/logo}}
-            </li>
+            <a href="/projects?tag={{safe_name}}" class="list-group-item">
+<!--                class="btn btn-outline-success btn-square-sm">{{> search-svg}}-->
+<!--            <li class="list-group-item">-->
+<!--                <a href="/projects?tag={{safe_name}}" class="btn btn-outline-success btn-square-md">{{> search-svg}}</a> {{name}}{{#logo}}<img src="{{logo}}" alt="{{name}} Logo" style="float:right; max-height:100%; max-width:32px; object-fit: contain;"/>{{/logo}}-->
+                {{name}}
+                {{#logo}}<img src="{{logo}}" alt="{{name}} Logo" style="float:right; max-height:100%; max-width:32px; object-fit: contain;"/>{{/logo}}
+<!--            </li>-->
+            </a>
             {{/buzzwords}}
     </ul>
     {{/has_buzzwords}}

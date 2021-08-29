@@ -2,7 +2,7 @@
 # https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js
 #
 import json
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import pystache
 import uvicorn as uvicorn
@@ -26,6 +26,41 @@ def setup(app):
     for key, value in buzzwords.items():
         if 'name' not in value:
             value['name'] = key
+        if 'alias' in value:
+            spaced = [n.replace(" ","-") for n in value['alias'] if " " in n]
+            value['alias'].extend(spaced)
+        if 'safe_name' not in value:
+            value['safe_name'] = value['name']
+
+
+
+    def get_buzz(word:str) -> Optional[Dict]:
+        if word in buzzwords:
+            return buzzwords[word]
+
+        word = word.lower()
+        for key, value in buzzwords.items():
+            if key.lower() == word:
+                return value
+            if 'alias' in value:
+                for a in value['alias']:
+                    if a.lower() == word:
+                        return value
+        return None
+
+    def project_has_buzz(project:Dict, word:str) -> bool:
+        word = word.lower()
+
+        for buzz in project['buzzwords']:
+            if word == buzz['name'].lower():
+                return True
+            if 'alias' in buzz:
+                for a in buzz['alias']:
+                    if word == a.lower():
+                        return True
+        return False
+
+
 
     for project in projects:
         project['sub_url'] = f"/projects/{project['id']}"
@@ -35,10 +70,11 @@ def setup(app):
         if buzz:
             buzz.sort()
 
-            def default_buzz(word: str) -> Dict:
-                return {'name': word}
+            for b in buzz:
+                if b not in buzzwords:
+                    buzzwords[b] = {'name': b}
 
-            project['buzzwords'] = [buzzwords.get(b, default_buzz(b)) for b in buzz]
+            project['buzzwords'] = [buzzwords[b] for b in buzz]
             project['has_buzzwords'] = True
 
     project_lookup = {project['id']: project for project in projects}
@@ -48,8 +84,21 @@ def setup(app):
         return RedirectResponse(url="/projects")
 
     @app.get("/projects")
-    def project_index_page():
-        ctx = {'projects': projects}
+    def project_index_page(tag: str = None):
+        local_projects = projects
+        ctx = {}
+        if tag:
+            ctx['tag'] = {'name': tag}
+            tag_buzz = get_buzz(tag)
+            if tag_buzz is not None:
+                ctx['info'] = tag_buzz
+                local_projects = [p for p in local_projects if project_has_buzz(p,tag)]
+                if len(local_projects) == 0:
+                    ctx['tag']['warn_proj'] = True
+            else:
+                ctx['tag']['warn_tag'] = True
+
+        ctx['projects'] = local_projects
         content = renderer.render_path("static/html/project_index.html", **ctx)
         return HTMLResponse(content)
 
