@@ -1,0 +1,13 @@
+{
+  "Unity3D": {
+    "logo":"img/buzzwords/UnityLogo.png"
+  },
+  "Python": {
+    "logo": "img/buzzwords/PythonLogo.svg"
+  },
+  "AWS": {
+    "name": "Amazon Web Services",
+    "logo": "img/buzzwords/AmazonWebServicesLogo.svg"
+  }
+
+}

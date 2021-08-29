@@ -2,6 +2,7 @@
 # https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js
 #
 import json
+from typing import Dict, List
 
 import pystache
 import uvicorn as uvicorn
@@ -19,10 +20,27 @@ def setup(app):
     with open("data/projects.json") as j_file:
         projects = json.load(j_file)
 
+    with open("data/buzzwords.json") as j_file:
+        buzzwords = json.load(j_file)
+
+    for key, value in buzzwords.items():
+        if 'name' not in value:
+            value['name'] = key
+
     for project in projects:
         project['sub_url'] = f"/projects/{project['id']}"
         desc = project['description']
         project['lines'] = [{'line': part} for part in desc.split("\n") if len(part) > 0]
+        buzz: List = project.get('buzzwords', None)
+        if buzz:
+            buzz.sort()
+
+            def default_buzz(word: str) -> Dict:
+                return {'name': word}
+
+            project['buzzwords'] = [buzzwords.get(b, default_buzz(b)) for b in buzz]
+            project['has_buzzwords'] = True
+
     project_lookup = {project['id']: project for project in projects}
 
     @app.get("/")
@@ -59,4 +77,4 @@ def setup(app):
 if __name__ == "__main__":
     web_app = FastAPI(openapi_url=None)  # disable docs; not a rest-api but a webserver
     setup(web_app)
-    uvicorn.run(web_app, port=8080, host="0.0.0.0")
+    uvicorn.run(web_app, port=8080, host="127.0.0.1")
