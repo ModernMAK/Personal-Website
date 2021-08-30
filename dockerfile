@@ -3,7 +3,6 @@ FROM python:3.8.1-slim
 # Setup Env
 ENV PYTHONUNBUFFERED 1 
 EXPOSE 8080
-WORKDIR /app
 
 # Setup App
 COPY requirements.txt .
@@ -11,4 +10,4 @@ COPY ./src .
 
 RUN pip install -r requirements.txt
 
-CMD ["uvicorn", "app:web_app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "app:web_app", "--ssl-keyfile", "/etc/letsencrypt/live/modernmak.com/privkey.pem", "--ssl-certfile", "/etc/letsencrypt/live/modernmak.com/fullchain.pem", "--host", "0.0.0.0", "--port", "8080"]
