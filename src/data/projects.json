@@ -6,7 +6,6 @@
     "repo": "https://github.com/ModernMAK/Relic-SGA-Archive-Tool",
     "thumbnail": "/img/project/Relic-Sga-Tool.png",
     "banner": "/img/project/Relic-Sga-Tool-Banner.png",
-    "description": "This project started as a method to extract models from the game Dawn Of War. And began with some google-fu to build a basis for how files are layed out. Using the forums over at Xentax; I got a gist of the Archive folder's layout and the specialized file layout.\n\nWhile this allowed me to read the files; most of the important files were still 'blobby' data dumps. \n\nI began with Audio-Files, researching on forums and the modding scene for information on AIFF-C. As it turned out; the files were compressed using a special codec developed by relic, requiring the use of  two ancient programs to convert back to a wav format.\n\nNext came models; a fine piece of advice I found on forums was looking for the exponent/mantissa of floats; typically XF or FX depending on byte orders. This helps identify the 'position' part of a vertex list. From there, I extrapolated common things I expected to find in a mesh; Uvs & Normals.\n\nWhile not perfect, since the mesh still had unknown fields packed in, and I didn't understand how to parse a skeleton chunk, it was capable of dumping the majority of the object without ripping it from the gpu (which is what is required by ninjaripper).\n\nAfter meshes, I moved onto textures. From memory, I believe most all DOW I textures (packed into texture archives) were dds files marked as tga files. And required rebuilding a proper DDS file header. Later, I ran into a separate texture set that was grayscale/color TGAs which required rebuilding the TGA header.\n\nFrom there I looked into other assets to convert, but decided against it. Since these files were exclusive to the game, and didn't have a good reason to need to extract them.\n\nLater, I learned that this format was still being used by Relic; all the way to their game DOW III. So I tried to continue to extract assets for DOW II and DOW III. Primarily; models. DOW II uses FMOD audio, which I felt would be too much of an undertaking to handle when I'm sure a tool already exists, and DOW III (I think) already unpacked audio lines normally?\n\n\nThe end result is a tool which can unpack .SGA archives, RelicChunky files (as generic binary folder/data files), Models (.WHM, .Model), Textures (.RTX, .WTP, .RTG) and Audio (.FDA / .AIFF-C)\n",
     "buzzwords": ["Python"]
   },
   {
@@ -50,7 +49,7 @@
     "summary": "A python service I created to tag files on your local system, without needing to organize them by folders.",
     "repo": "https://github.com/ModernMAK/FileTagServer",
     "description": "FileTagServer was an ambitious project to be able to 'tag' files and quickly search them. Allowing them to be grouped  arbitrarily. I used this project to organize a bunch of art and documents relating to project ideas.\n\tThe project taught me about product design, as well as building a REST apis, and displays a barebones knowledge of relational databases in SQL.\nThis project kept changing scope as I discovered how cumbersome my initial user interface was, and made me appreciate good UX design.\n",
-    "buzzwords": ["Python"]
+    "buzzwords": ["Python", "SQL"]
   },
   {
     "id": "character-ability-prototype",
@@ -85,8 +84,8 @@
     "id": "website",
     "name": "ModernMAK.com",
     "summary": "The website you're viewing. The site is built using FastAPI, Pystache & uvicorn. Backend is an AWS EC2 instance running their AWS-Linux distro with docker and git. Frontend is just basic HTML & Bootstrap 5.1's lovely CSS/JS distributions.",
-    "description": "I needed a way to present my stuff that's slightly nicer than shouting 'I've dabbled in programming for 5+ years, just check my GitHub!' This simple site is the culmination of that.",
     "thumbnail": "/img/project/Website.png",
+    "repo": "https://github.com/ModernMAK/Personal-Website",
     "buzzwords": ["Python", "AWS", "Docker", "Linux"]
   }
 ]
