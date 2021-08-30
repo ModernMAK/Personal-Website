@@ -70,7 +70,7 @@ def setup(app: FastAPI) -> None:
             return get_buzz_from_dict(word, d)
 
     def project_has_buzz(project: Dict, word: str) -> bool:
-        return get_buzz_from_list(word, project.get("buzzword", None)) is not None
+        return get_buzz_from_list(word, project.get("buzzwords", None)) is not None
 
     for project in projects:
         project['sub_url'] = f"/projects/{project['id']}"
