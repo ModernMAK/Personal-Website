@@ -63,8 +63,11 @@ def setup(app: FastAPI) -> None:
         return None
 
     def get_buzz_from_list(word: str, buzz: List) -> Optional[Dict]:
-        d = {b['name']: b for b in buzz}
-        return get_buzz_from_dict(word, d)
+        if buzz is None:
+            return None
+        else:
+            d = {b['name']: b for b in buzz}
+            return get_buzz_from_dict(word, d)
 
     def project_has_buzz(project: Dict, word: str) -> bool:
         return get_buzz_from_list(word, project.get("buzzword", None)) is not None
