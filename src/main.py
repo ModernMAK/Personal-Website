@@ -2,7 +2,6 @@
 # https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js
 #
 import json
-import os
 from typing import Dict, List, Optional
 
 import pystache
@@ -28,12 +27,14 @@ def setup(app):
         if 'name' not in value:
             value['name'] = key
         if 'alias' in value:
-            spaced = [n.replace(" ", "-") for n in value['alias'] if " " in n]
+            spaced = [n.replace(" ","-") for n in value['alias'] if " " in n]
             value['alias'].extend(spaced)
         if 'safe_name' not in value:
             value['safe_name'] = value['name']
 
-    def get_buzz(word: str) -> Optional[Dict]:
+
+
+    def get_buzz(word:str) -> Optional[Dict]:
         if word in buzzwords:
             return buzzwords[word]
 
@@ -47,7 +48,7 @@ def setup(app):
                         return value
         return None
 
-    def project_has_buzz(project: Dict, word: str) -> bool:
+    def project_has_buzz(project:Dict, word:str) -> bool:
         word = word.lower()
 
         for buzz in project['buzzwords']:
@@ -58,6 +59,8 @@ def setup(app):
                     if word == a.lower():
                         return True
         return False
+
+
 
     for project in projects:
         project['sub_url'] = f"/projects/{project['id']}"
@@ -89,7 +92,7 @@ def setup(app):
             tag_buzz = get_buzz(tag)
             if tag_buzz is not None:
                 ctx['info'] = tag_buzz
-                local_projects = [p for p in local_projects if project_has_buzz(p, tag)]
+                local_projects = [p for p in local_projects if project_has_buzz(p,tag)]
                 if len(local_projects) == 0:
                     ctx['tag']['warn_proj'] = True
             else:
@@ -123,50 +126,4 @@ def setup(app):
 if __name__ == "__main__":
     web_app = FastAPI(openapi_url=None)  # disable docs; not a rest-api but a webserver
     setup(web_app)
-    try:
-
-        # for cdir, _, files in os.walk("/"):
-        #     print(cdir)
-        #     for f in files:
-        #         print("\t", os.path.join(cdir,f))
-
-        key = "/etc/letsencrypt/live/development.modernmak.com/privkey.pem"
-        cert = "/etc/letsencrypt/live/development.modernmak.com/fullchain.pem"
-
-        for root, folders, files in os.walk("/etc/letsencrypt/live/development.modernmak.com"):
-            print(root)
-            for f in folders:
-                f_path = os.path.join(root, f)
-                print("DIR", "\t", f, "\t", os.path.exists(f_path), "\t", os.access(f_path, os.R_OK), "\t", os.access(f_path, os.W_OK), "\t", os.access(f_path, os.X_OK))
-            for f in files:
-                f_path = os.path.join(root, f)
-                print("FILE", "\t", f, "\t", os.path.exists(f_path), "\t", os.access(f_path, os.R_OK), "\t", os.access(f_path, os.W_OK), "\t", os.access(f_path, os.X_OK))
-
-        print()
-        print("KEY")
-        c = key
-        for i in range(5):  # while true but safer
-            print("\t", c, ":", os.path.exists(c))
-            c = os.path.dirname(c)
-            if c in ["/", ""]:
-                break
-
-        print("CERT")
-        c = cert
-        for i in range(5):  # while true but safer
-            print("\t", c, ":", os.path.exists(c))
-            c = os.path.dirname(c)
-            if c in ["/", ""]:
-                break
-
-        print(os.stat(key))
-        print(os.stat(cert))
-
-        with open(key, "r") as _:
-            pass
-        with open(cert, "r") as _:
-            pass
-        uvicorn.run(web_app, ssl_keyfile=key, ssl_certfile=cert, port=8080, host="0.0.0.0")
-    except FileNotFoundError as e:
-        print(e.errno, e.filename, *e.args)
-        raise e
+    uvicorn.run(web_app, port=8080, host="127.0.0.1")
