@@ -6,8 +6,8 @@ docker rm Website-Prod
 
 docker kill Website-Dev
 docker rm Website-Dev
-# docker rmi $(docker images -q)
+docker rmi $(docker images -q)
 
-docker build https://github.com/ModernMAK/Personal-Website.git#production -t personal-website-prod
+docker build https://github.com/ModernMAK/Personal-Website.git#development -t personal-website-dev
 
-docker run --name Website-Prod -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 80:8080 -p 443:8080 personal-website-prod
+docker run --name Website-Dev -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 80:8080 -p 443:8080 personal-website-dev
