@@ -87,6 +87,7 @@
     "summary": "The website you're viewing. The site is built using FastAPI, Pystache & uvicorn. Backend is an AWS EC2 instance running their AWS-Linux distro with docker and git. Frontend is just basic HTML & Bootstrap 5.1's lovely CSS/JS distributions.",
     "description": "I needed a way to present my stuff that's slightly nicer than shouting 'I've dabbled in programming for 5+ years, just check my GitHub!' This simple site is the culmination of that.",
     "thumbnail": "/img/project/Website.png",
-    "buzzwords": ["Python", "AWS", "Docker", "Linux"]
+    "buzzwords": ["Python", "AWS", "Docker", "Linux"],
+    "repo": "https://github.com/ModernMAK/Personal-Website"
   }
 ]
