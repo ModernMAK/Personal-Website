@@ -1,0 +1,9 @@
+{
+    "id": "example-id ~ Will use folder name if not specified",
+    "name": "Example Name ~ Will use folder name if not specified",
+    "summary": "A brief description of the project.",
+    "repo": "https://github.com/ExampleUser/Example-Repo OR /Example-Repo if github is specified in projects/config.json",
+    "thumbnail": "/static/img/path-to-file/Example-Thumbnail.ext OR path-to-file/Example-Thumbnail.ext if thumbnail_root is specified in projects/config.json",
+    "banner": "/static/img/path-to-file/Example-Banner.ext OR path-to-file/Example-Banner.ext if banner_root is specified in projects/config.json",
+    "buzzwords": ["List Of Buzzwords", "You can use any alias specified", "Casing is ignored"]
+}

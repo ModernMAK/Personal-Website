@@ -1,0 +1,9 @@
+{
+    "id": "relic-sga-tool",
+    "name": "Relic SGA Tool",
+    "summary": "A content extractor for Relic's SGA file format. Written in python.",
+    "repo": "Relic-SGA-Archive-Tool",
+    "thumbnail": "Relic-Sga-Tool.png",
+    "banner": "Relic-Sga-Tool-Banner.png",
+    "buzzwords": ["Python"]
+}
