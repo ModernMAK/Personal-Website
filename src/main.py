@@ -126,4 +126,4 @@ def setup(app):
 if __name__ == "__main__":
     web_app = FastAPI(openapi_url=None)  # disable docs; not a rest-api but a webserver
     setup(web_app)
-    uvicorn.run(web_app, port=8080, host="127.0.0.1")
+    uvicorn.run(web_app, port=80, host="127.0.0.1")

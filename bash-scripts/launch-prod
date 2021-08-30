@@ -1,11 +1,14 @@
 docker kill Website-Prod-HTTP
-docker rm Website-Prod-HTTP
-
+docker kill Website-Prod-HTTP-FWD
 docker kill Website-Prod-HTTPS
+
+docker rm Website-Prod-HTTP
+docker rm Website-Prod-HTTP-FWD
 docker rm Website-Prod-HTTPS
 
 docker build https://github.com/ModernMAK/Personal-Website.git#production -f http.dockerfile -t personal-website-prod-http
+docker build https://github.com/ModernMAK/Personal-Website.git#production -f http-redirect.dockerfile -t personal-website-prod-http-fwd
 docker build https://github.com/ModernMAK/Personal-Website.git#production -f https.dockerfile -t personal-website-prod-https
 
-docker run -d --name Website-Prod-HTTP -p 80:8080 personal-website-prod-http
+docker run -d --name Website-Prod-HTTP-FWD -p 80:8080 personal-website-prod-http-fwd
 docker run -d --name Website-Prod-HTTPS -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 443:8443 personal-website-prod-https
