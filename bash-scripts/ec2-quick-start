@@ -1,4 +1,0 @@
-bash docker-setup
-bash delete-all-images
-bash build-image
-bash run-image

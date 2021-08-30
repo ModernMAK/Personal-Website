@@ -1,1 +1,0 @@
-ssh -i C:\Users\andre\Downloads\PersonalWebsite.pem ec2-user@modernmak.com "bash launch"
