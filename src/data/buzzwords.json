@@ -1,45 +1,47 @@
 {
   "Unity3D": {
     "alias": ["Unity"],
-    "logo":"img/buzzwords/UnityLogo.svg"
+    "logo":"/img/buzzwords/UnityLogo.svg"
   },
   "Python": {
-    "logo": "img/buzzwords/PythonLogo.svg"
+    "logo": "/img/buzzwords/PythonLogo.svg"
   },
   "AWS": {
     "name": "Amazon Web Services",
-    "logo": "img/buzzwords/AmazonWebServicesLogo.svg"
+    "logo": "/img/buzzwords/AmazonWebServicesLogo.svg"
   },
   "Docker": {
-    "logo": "img/buzzwords/DockerLogo.svg"
+    "logo": "/img/buzzwords/DockerLogo.svg"
   },
   "TensorFlow": {
-    "logo": "img/buzzwords/TensorFlowLogo.svg"
+    "logo": "/img/buzzwords/TensorFlowLogo.svg"
   },
   "Steam": {
-    "logo": "img/buzzwords/SteamLogo.svg"
+    "logo": "/img/buzzwords/SteamLogo.svg"
   },
   "SteamVR": {
-    "logo": "img/buzzwords/SteamLogo.svg"
+    "logo": "/img/buzzwords/SteamLogo.svg"
   },
   "C#": {
     "alias": ["CSharp","C Sharp"],
-    "logo": "img/buzzwords/CSharpLogo.svg",
+    "logo": "/img/buzzwords/CSharpLogo.svg",
     "safe_name": "C-Sharp"
   },
   "C++": {
     "alias": ["CPP","CPlusPlus","C Plus Plus"],
-    "logo": "img/buzzwords/CPlusPlusLogo.svg",
+    "logo": "/img/buzzwords/CPlusPlusLogo.svg",
     "safe_name": "C-Plus-Plus"
   },
   "C": {
-    "logo": "img/buzzwords/CLogo.svg"
+    "logo": "/img/buzzwords/CLogo.svg"
   },
   "Arduino": {
-    "logo": "img/buzzwords/ArduinoLogo.svg"
+    "logo": "/img/buzzwords/ArduinoLogo.svg"
   },
   "Oculus": {
-    "logo": "img/buzzwords/OculusLogo.svg"
+    "logo": "/img/buzzwords/OculusLogo.svg"
+  },
+  "Linux": {
+    "logo": "/img/buzzwords/LinuxLogo.svg"
   }
-
 }
