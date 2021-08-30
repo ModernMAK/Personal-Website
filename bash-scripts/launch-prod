@@ -1,13 +1,11 @@
-sudo usermod -a -G docker ec2-user
-sudo service docker start
+docker kill Website-Prod-HTTP
+docker rm Website-Prod-HTTP
 
-docker kill Website-Prod
-docker rm Website-Prod
+docker kill Website-Prod-HTTPS
+docker rm Website-Prod-HTTPS
 
-docker kill Website-Dev
-docker rm Website-Dev
-docker rmi $(docker images -q)
+docker build https://github.com/ModernMAK/Personal-Website.git#production -f http.dockerfile -t personal-website-prod-http
+docker build https://github.com/ModernMAK/Personal-Website.git#production -f https.dockerfile -t personal-website-prod-https
 
-docker build https://github.com/ModernMAK/Personal-Website.git#development -t personal-website-dev
-
-docker run --name Website-Dev -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 80:8080 -p 443:8080 personal-website-dev
+docker run -d --name Website-Prod-HTTP -p 80:8080 personal-website-prod-http
+docker run -d --name Website-Prod-HTTPS -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 443:8443 personal-website-prod-https
