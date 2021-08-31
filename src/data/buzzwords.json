@@ -43,5 +43,8 @@
   },
   "Linux": {
     "logo": "/img/buzzwords/LinuxLogo.svg"
+  },
+  "SQL": {
+    "logo": "/img/buzzwords/SqlLogo.svg"
   }
 }

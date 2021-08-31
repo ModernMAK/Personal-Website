@@ -1,6 +1,3 @@
-# https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css
-# https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js
-#
 import json
 from typing import Dict, List, Optional
 
@@ -13,59 +10,83 @@ from starlette.responses import HTMLResponse, RedirectResponse
 from starlette.staticfiles import StaticFiles
 
 
-def setup(app):
+def setup(app: FastAPI) -> None:
+    """
+    Initializes all routes required by the website. By containing it in a function, I can control when routes are added, which allows me to reuse routes.
+
+    :param app: The fast api instance to initialize with the website
+    """
+
+    # Initialize Pystache
     renderer = pystache.Renderer(search_dirs="static/templates")
+    # Initialize IMG and CSS, the only two static directories we expose
+    #   HTML & templates are managed by routes
     app.mount("/img", StaticFiles(directory="static/img"))
     app.mount("/css", StaticFiles(directory="static/css"))
+
+    # Open configurations; projects & buzzwords
     with open("data/projects.json") as j_file:
         projects = json.load(j_file)
 
     with open("data/buzzwords.json") as j_file:
         buzzwords = json.load(j_file)
 
+    # Cleanup buzzwords
     for key, value in buzzwords.items():
         if 'name' not in value:
             value['name'] = key
         if 'alias' in value:
-            spaced = [n.replace(" ","-") for n in value['alias'] if " " in n]
+            spaced = [n.replace(" ", "-") for n in value['alias'] if " " in n]
             value['alias'].extend(spaced)
         if 'safe_name' not in value:
             value['safe_name'] = value['name']
 
+    # Helper to get a buzzword from a word; uses aliases, safe_name, and key
+    def get_buzz_from_dict(word: str, buzz: Dict = None) -> Optional[Dict]:
+        buzz = buzz or buzzwords
 
-
-    def get_buzz(word:str) -> Optional[Dict]:
-        if word in buzzwords:
-            return buzzwords[word]
+        if word in buzz:
+            return buzz[word]
 
         word = word.lower()
-        for key, value in buzzwords.items():
+        for key, value in buzz.items():
             if key.lower() == word:
                 return value
+            if 'safe_name' in value:
+                if word == value['safe_name'].lower():
+                    return value
+
             if 'alias' in value:
                 for a in value['alias']:
                     if a.lower() == word:
                         return value
         return None
 
-    def project_has_buzz(project:Dict, word:str) -> bool:
-        word = word.lower()
+    def get_buzz_from_list(word: str, buzz: List) -> Optional[Dict]:
+        if buzz is None:
+            return None
+        else:
+            d = {b['name']: b for b in buzz}
+            return get_buzz_from_dict(word, d)
 
-        for buzz in project['buzzwords']:
-            if word == buzz['name'].lower():
-                return True
-            if 'alias' in buzz:
-                for a in buzz['alias']:
-                    if word == a.lower():
-                        return True
-        return False
-
-
+    def project_has_buzz(project: Dict, word: str) -> bool:
+        return get_buzz_from_list(word, project.get("buzzwords", None)) is not None
 
     for project in projects:
         project['sub_url'] = f"/projects/{project['id']}"
-        desc = project['description']
-        project['lines'] = [{'line': part} for part in desc.split("\n") if len(part) > 0]
+        if 'description' in project:
+            desc = project['description']
+        elif 'description_file' in project:
+            with open(project['description_file'], "r") as f:
+                desc = f.read()
+        else:
+            try:
+                with open(f"data/descriptions/{project['id']}.txt", "r") as f:
+                    desc = f.read()
+            except FileNotFoundError:
+                desc = None
+        if desc is not None:
+            project['lines'] = [{'line': part} for part in desc.split("\n") if len(part) > 0]
         buzz: List = project.get('buzzwords', None)
         if buzz:
             buzz.sort()
@@ -89,10 +110,10 @@ def setup(app):
         ctx = {}
         if tag:
             ctx['tag'] = {'name': tag}
-            tag_buzz = get_buzz(tag)
+            tag_buzz = get_buzz_from_dict(tag)
             if tag_buzz is not None:
                 ctx['info'] = tag_buzz
-                local_projects = [p for p in local_projects if project_has_buzz(p,tag)]
+                local_projects = [p for p in local_projects if project_has_buzz(p, tag)]
                 if len(local_projects) == 0:
                     ctx['tag']['warn_proj'] = True
             else:
