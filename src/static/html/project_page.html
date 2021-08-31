@@ -24,7 +24,7 @@
         {{^banner}}{{#thumbnail}}<img class="bd-placeholder-img card-img-top" style="object-fit: contain; max-height: 300px;" width="100%" src="{{thumbnail}}" alt="Thumbnail"><hr>{{/thumbnail}}{{/banner}}
 <!--        <h2>Description</h2>-->
         {{#lines}}
-        <p>{{>tab-4}}{{line}}</p>
+        <p>{{>tab-4}}{{{line}}}</p>
         {{/lines}}
         {{^lines}}
         <p>A description hasn't been written for this project yet.</p>
