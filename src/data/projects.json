@@ -36,6 +36,14 @@
     "buzzwords": ["C#", "Unity3D"]
   },
   {
+    "id": "website",
+    "name": "ModernMAK.com",
+    "summary": "The website you're viewing. The site is built using FastAPI, Pystache & uvicorn. Backend is an AWS EC2 instance running their AWS-Linux distro with docker and git. Frontend is just basic HTML & Bootstrap 5.1's lovely CSS/JS distributions.",
+    "thumbnail": "/img/project/Website.png",
+    "buzzwords": ["Python", "AWS", "Docker", "Linux"],
+    "repo": "https://github.com/ModernMAK/Personal-Website"
+  },
+  {
     "id": "litespeed",
     "name": "Litespeed",
     "summary": "A bare-bones python webserver which I collaborated on.",
@@ -79,13 +87,5 @@
     "summary": "A small project to build my own arcade joystick using an Arduino microcontroller. Built in C.",
     "description": "A simple c++ microcontroller project about polling a circuit and sending a HID report. While the coding aspect is quite basic; it was a good lesson in learning about ARM firmware (I had to flash new firmware to use the arduino as a HID usb device) and serialization (my first attempts were a client-slave program using arudino's USB serial.",
     "buzzwords": ["C", "C++", "Arduino"]
-  },
-  {
-    "id": "website",
-    "name": "ModernMAK.com",
-    "summary": "The website you're viewing. The site is built using FastAPI, Pystache & uvicorn. Backend is an AWS EC2 instance running their AWS-Linux distro with docker and git. Frontend is just basic HTML & Bootstrap 5.1's lovely CSS/JS distributions.",
-    "thumbnail": "/img/project/Website.png",
-    "buzzwords": ["Python", "AWS", "Docker", "Linux"],
-    "repo": "https://github.com/ModernMAK/Personal-Website"
   }
 ]
