@@ -1,0 +1,8 @@
+docker kill Website-NGinX
+docker rm Website-NGinX
+
+docker build https://github.com/ModernMAK/Personal-Website.git#development -f dockerfiles/nginx.dockerfile -t personal-website-nginx
+
+docker run -d --rm --name Website-NGinX  -v "/etc/letsencrypt:/etc/letsencrypt" -v "/sockets:/sockets" -p 80:80 -p 443:443 personal-website-nginx
+
+

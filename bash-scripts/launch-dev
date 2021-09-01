@@ -1,6 +1,6 @@
 docker kill Website-Dev-HTTPS
 docker rm Website-Dev-HTTPS
 
-docker build https://github.com/ModernMAK/Personal-Website.git#development -f https.dockerfile -t personal-website-dev-https --rm
+docker build https://github.com/ModernMAK/Personal-Website.git#development -f dockerfiles/https.dockerfile -t personal-website-dev-https
 
-docker run -d --name Website-Dev-HTTPS -v "/etc/letsencrypt:/etc/letsencrypt" -p 443:443 -p 80:80 personal-website-dev-https
+docker run -d --rm --name Website-Dev-HTTPS -v "/sockets:/sockets" personal-website-dev-https

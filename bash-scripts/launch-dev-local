@@ -1,6 +1,6 @@
 docker kill Website-Dev-HTTP
 docker rm Website-Dev-HTTP
 
-docker build https://github.com/ModernMAK/Personal-Website.git#development -f http.dockerfile -t personal-website-dev-http --rm
+docker build https://github.com/ModernMAK/Personal-Website.git#development -f dockerfiles/http.dockerfile -t personal-website-dev-http
 
-docker run -d --name Website-Dev-HTTP -p 80:80 personal-website-dev-http
+docker run -d --rm --name Website-Dev-HTTPS -v "/sockets:/sockets" personal-website-dev-https
