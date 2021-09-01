@@ -1,10 +1,6 @@
 docker kill Website-Dev-HTTP
 docker rm Website-Dev-HTTP
 
-docker kill Website-Dev-HTTPS
-docker rm Website-Dev-HTTPS
-
-# docker build https://github.com/ModernMAK/Personal-Website.git#development -f http.dockerfile -t personal-website-dev-http
-docker build https://github.com/ModernMAK/Personal-Website.git#development -f https.dockerfile -t personal-website-dev-https
+docker build https://github.com/ModernMAK/Personal-Website.git#development -f http.dockerfile -t personal-website-dev-http --rm
 
 docker run -d --name Website-Dev-HTTP -p 80:80 personal-website-dev-http

@@ -1,11 +1,6 @@
-docker kill Website-Dev-HTTP
-docker rm Website-Dev-HTTP
-
 docker kill Website-Dev-HTTPS
 docker rm Website-Dev-HTTPS
 
-docker build https://github.com/ModernMAK/Personal-Website.git#development -f http.dockerfile -t personal-website-dev-http
-docker build https://github.com/ModernMAK/Personal-Website.git#development -f https.dockerfile -t personal-website-dev-https
+docker build https://github.com/ModernMAK/Personal-Website.git#development -f https.dockerfile -t personal-website-dev-https --rm
 
-docker run -d --name Website-Dev-HTTP -p 80:8080 personal-website-dev-http
-docker run -d --name Website-Dev-HTTPS -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 443:8443 personal-website-dev-https
+docker run -d --name Website-Dev-HTTPS -v "/etc/letsencrypt:/etc/letsencrypt" -v "/etc/letsencrypt/live/development.modernmak.com:/ssl-cert" -p 443:443 -p 80:80 personal-website-dev-https
