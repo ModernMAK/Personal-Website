@@ -18,4 +18,4 @@ COPY ./nginx/https.conf .
 
 # Startup, run nginx and uvicorn
 WORKDIR /
-CMD /bin/bash -c " nginx -c /nginx-conf/https.conf; cd webserver; uvicorn app:web_app --host 0.0.0.0 --port 8080 --uds /uvicorn.sock --log-level debug --ssl-keyfile /etc/letsencrypt/live/modernmak.com/privkey.pem --ssl-certfile /etc/letsencrypt/live/modernmak.com/fullchain.pem;"
+CMD /bin/bash -c " nginx -c /nginx-conf/https.conf; cd webserver; uvicorn app:web_app --host 0.0.0.0 --port 8080 --uds /uvicorn.sock --log-level debug;"
