@@ -3,4 +3,4 @@ docker rm Website-Dev-HTTPS
 
 docker build https://github.com/ModernMAK/Personal-Website.git#development -f https.dockerfile -t personal-website-dev-https --rm
 
-docker run -d --name Website-Dev-HTTPS -v "/etc/letsencrypt:/etc/letsencrypt" -v "/etc/letsencrypt/live/development.modernmak.com:/ssl-cert" -p 443:443 -p 80:80 personal-website-dev-https
+docker run -d --name Website-Dev-HTTPS -v "/etc/letsencrypt:/etc/letsencrypt" -p 443:443 -p 80:80 personal-website-dev-https
