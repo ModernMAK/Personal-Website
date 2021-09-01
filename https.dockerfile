@@ -18,4 +18,4 @@ COPY ./nginx/https.conf .
 
 # Startup, run nginx and uvicorn
 WORKDIR /
-CMD /bin/bash -c " nginx -c /nginx-conf/https.conf; cd webserver; uvicorn app:web_app --host 0.0.0.0 --port 8080 --uds /uvicorn.sock --log-level debug;"
+CMD /bin/bash -c " nginx -c /nginx-conf/https.conf; cd webserver; uvicorn app:web_app --host 0.0.0.0 --port 8080 --uds /uvicorn.sock --log-level debug; cd /var/log/nginx; echo access.log; cat access.log; echo error.log cat error.log;"
