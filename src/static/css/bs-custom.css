@@ -1,0 +1,43 @@
+
+.btn-square {
+    border-radius: 0;
+}
+
+.btn-group-bottom>.btn-group-bottom:not(:last-child)>.btn, .btn-group-bottom>.btn:not(:last-child):not(.dropdown-toggle)
+{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.btn-group-bottom>.btn-group-bottom:last-child>.btn, .btn-group-bottom>.btn:last-child:not(.dropdown-toggle)
+{
+    border-top-right-radius: 0;
+}
+.btn-group-bottom>.btn-group-bottom:not(:first-child)>.btn, .btn-group-bottom>.btn:nth-child(n+3), .btn-group-bottom>:not(.btn-check)+.btn
+{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.btn-group-bottom>.btn-group-bottom:first-child>.btn, .btn-group-bottom>.btn:nth-child(n+3), .btn-group-bottom>.btn:not(.btn-check)
+{
+    border-top-left-radius: 0;
+}
+
+
+.btn-group-top>.btn-group-top:not(:last-child)>.btn, .btn-group-top>.btn:not(:last-child):not(.dropdown-toggle)
+{
+    border-top-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.btn-group-top>.btn-group-top:last-child>.btn, .btn-group-top>.btn:last-child:not(.dropdown-toggle)
+{
+    border-top-right-radius: 0;
+}
+.btn-group-top>.btn-group-top:not(:first-child)>.btn, .btn-group-top>.btn:nth-child(n+3), .btn-group-top>:not(.btn-check)+.btn
+{
+    border-top-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.btn-group-top>.btn-group-top:first-child>.btn, .btn-group-top>.btn:nth-child(n+3), .btn-group-top>.btn:not(.btn-check)
+{
+    border-top-left-radius: 0;
+}
